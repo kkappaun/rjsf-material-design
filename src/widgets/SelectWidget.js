@@ -47,7 +47,7 @@ function SelectWidget({
 					id={id}
 					multiple={multiple}
 					label={label}
-					value={value?value:null}
+					value={value?value:''}
 					required={required}
 					disabled={disabled}
 					readOnly={readonly}
