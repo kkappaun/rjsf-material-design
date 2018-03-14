@@ -17,7 +17,7 @@ function TextareaWidget({
     return (
         <BaseInput
             id={id}
-            multiLine={true}
+            multiline={true}
             label={label}
             value={typeof value === 'undefined' ? '' : value}
             placeholder={placeholder}

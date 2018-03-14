@@ -1,8 +1,9 @@
 import React, { PropTypes } from "react";
 
-import SelectField from "material-ui/SelectField";
-import MenuItem from "material-ui/MenuItem";
-
+import Select from "material-ui/Select";
+import { MenuItem } from "material-ui/Menu";
+import Input, { InputLabel } from 'material-ui/Input';
+import { FormControl, FormHelperText } from 'material-ui/Form';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
@@ -29,6 +30,7 @@ function SelectWidget({
 	options,
 	value,
 	label,
+	title,
 	required,
 	disabled,
 	readonly,
@@ -39,22 +41,25 @@ function SelectWidget({
 	const { enumOptions } = options;
 
 	return (
-		<SelectField
-			id={id}
-			multiple={multiple}
-			floatingLabelText={label}
-			value={value}
-			required={required}
-			disabled={disabled}
-			readOnly={readonly}
-			autoFocus={autofocus}
-			onChange={(event, key, value) => {
-				onChange(processValue(schema, value));
-			}}>{
-			enumOptions.map(({ value, label }, i) => {
-				return <MenuItem key={i} value={value} primaryText={label}/>;
-			})
-		}</SelectField>
+		<FormControl>
+			<InputLabel htmlFor={id}>{title?title:label}</InputLabel>
+				<Select
+					id={id}
+					multiple={multiple}
+					label={label}
+					value={value?value:null}
+					required={required}
+					disabled={disabled}
+					readOnly={readonly}
+					autoFocus={autofocus}
+					onChange={(event) => {
+						onChange(processValue(schema, event.target.value));
+					}}>{
+					enumOptions.map(({ value, label }, i) => {
+						return <MenuItem key={i} value={value}>{label?label:value}</MenuItem>;
+					})
+				}</Select>
+			</FormControl>
 	);
 }
 

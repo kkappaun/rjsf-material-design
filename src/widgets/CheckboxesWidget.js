@@ -1,5 +1,5 @@
 import React, { PropTypes } from "react";
-
+import { FormControlLabel } from 'material-ui/Form'
 import Checkbox from "material-ui/Checkbox";
 
 function selectValue(value, selected, all) {
@@ -20,27 +20,33 @@ function CheckboxesWidget(props) {
 		disabled,
 		options,
 		value,
-		onChange
+		onChange,
+		color,
 	} = props;
 	const { enumOptions, inline } = options;
+
 	return (
 		<div className="checkboxes" id={id}>{
 			enumOptions.map((option, index) => {
 				const checked = value.indexOf(option.value) !== -1;
 				return (
-					<Checkbox
-						key={index}
+					<FormControlLabel
+						control={
+							<Checkbox
+								key={index}
+								checked={checked}
+								disabled={disabled}
+								onChange={(event) => {
+									const all = enumOptions.map(({ value }) => value);
+									if (event.target.checked) {
+										onChange(selectValue(option.value, value, all));
+									} else {
+										onChange(deselectValue(option.value, value));
+									}
+								}}
+							/>
+						}
 						label={option.label}
-						checked={checked}
-						disabled={disabled}
-						onCheck={(event) => {
-							const all = enumOptions.map(({ value }) => value);
-							if (event.target.checked) {
-								onChange(selectValue(option.value, value, all));
-							} else {
-								onChange(deselectValue(option.value, value));
-							}
-						}}
 					/>
 				);
 			})

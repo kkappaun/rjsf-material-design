@@ -33,11 +33,13 @@ module.exports = {
                     },
 	                toggle: {
 		                type: "boolean",
-		                title: "toggle button"
+		                title: "toggle button",
 	                },
                     select: {
-                        type: "boolean",
-                        title: "select box"
+                        title: "selectBox",
+                        type: "string",
+                        enum: ["true", "false"],
+                        enumNames: ["yes", "no"],
                     }
                 }
             },
@@ -92,12 +94,12 @@ module.exports = {
             radio: {
                 "ui:widget": "radio"
             },
-	        toggle: {
-		        "ui:widget": "toggle"
-	        },
-            select: {
-                "ui:widget": "select"
-            }
+            toggle: {
+    	        "ui:widget": "toggle"
+            },
+           select: {
+               "ui:widget": "select"
+           }
         },
         string: {
             textarea: {
@@ -161,12 +163,15 @@ module.exports = {
         boolean: {
             default: true,
             radio: true,
-            select: true
+            toggle: true,
+            select: "false"
         },
         string: {
             default: "Hello...",
             textarea: "... World"
+
         },
-        secret: "I'm a hidden string."
+        secret: "I'm a hidden string.",
+
     }
 };

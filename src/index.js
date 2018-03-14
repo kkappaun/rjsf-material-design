@@ -12,16 +12,16 @@ import MaterialDesignDateWidget from './widgets/DateWidget';
 import MaterialDesignEmailWidget from './widgets/EmailWidget';
 import MaterialDesignPasswordWidget from './widgets/PasswordWidget';
 import MaterialDesignRadioWidget from './widgets/RadioWidget';
-import MaterialDesignRangeWidget from './widgets/RangeWidget';
+// import MaterialDesignRangeWidget from './widgets/RangeWidget'; // PORT ME TO MATERIALUI V1
 import MaterialDesignSelectWidget from './widgets/SelectWidget';
 import MaterialDesignTextareaWidget from './widgets/TextareaWidget';
 import MaterialDesignTextWidget from './widgets/TextWidget';
-import MaterialDesignToggletWidget from './widgets/ToggleWidget';
+import MaterialDesignToggletWidget from './widgets/ToggleWidget'; 
 import MaterialDesignUpDownWidget from './widgets/UpDownWidget';
 import MaterialDesignURLWidget from './widgets/URLWidget';
 
 const customWidgets = {
-	toggle: MaterialDesignToggletWidget,
+	 toggle: MaterialDesignToggletWidget,
 };
 
 const customUiSchema = {
@@ -38,7 +38,7 @@ const materialDesignTheme = {
 		EmailWidget: MaterialDesignEmailWidget,
 		PasswordWidget: MaterialDesignPasswordWidget,
 		RadioWidget: MaterialDesignRadioWidget,
-		RangeWidget: MaterialDesignRangeWidget,
+		// RangeWidget: MaterialDesignRangeWidget,
 		SelectWidget: MaterialDesignSelectWidget,
 		TextareaWidget: MaterialDesignTextareaWidget,
 		TextWidget: MaterialDesignTextWidget,

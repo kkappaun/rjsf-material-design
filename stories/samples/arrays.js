@@ -15,6 +15,7 @@ module.exports = {
 				title: "A multiple choices list",
 				items: {
 					type: "string",
+
 					enum: ["foo", "bar", "fuzz", "qux"],
 				},
 				uniqueItems: true

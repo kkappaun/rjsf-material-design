@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { FormControlLabel } from 'material-ui/Form'
 import Checkbox from 'material-ui/Checkbox';
 
 function CheckboxWidget({
@@ -10,13 +10,19 @@ function CheckboxWidget({
 	onChange,
 }) {
 	return (
-		<Checkbox
-			id={id}
-			checked={!!value}
-			disabled={disabled}
-			onCheck={(event) => onChange(event.target.checked)}
-			label={label}
-		/>
+		<FormControlLabel
+          control={
+						<Checkbox
+							id={id}
+							checked={!!value}
+							disabled={disabled}
+							onChange={(event) => onChange(event.target.checked)}
+							label={label}
+						/>
+          }
+          label={label}
+        />
+
 	);
 }
 export default CheckboxWidget;

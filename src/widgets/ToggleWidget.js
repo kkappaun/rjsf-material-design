@@ -1,5 +1,10 @@
 import React from "react";
-import Toggle from "material-ui/Toggle";
+import { FormGroup, FormControlLabel } from 'material-ui/Form';
+import Switch from 'material-ui/Switch';
+
+function processValue(value) {
+	return value;
+}
 
 function ToggleWidget({
     value,
@@ -8,10 +13,17 @@ function ToggleWidget({
     onChange
 }) {
     return (
-        <Toggle defaultToggled={value}
-                onToggle={(event, value) => onChange(value)}
-                disabled={disabled}
-                label={label}/>
+      <FormControlLabel
+          control={
+            <Switch
+              checked={value}
+              onChange={(event) => {
+                  onChange(processValue(event.target.checked));
+              }}
+            />
+          }
+          label={label}
+        />
     );
 }
 

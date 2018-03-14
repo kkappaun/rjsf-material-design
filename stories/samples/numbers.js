@@ -21,19 +21,20 @@ module.exports = {
 				title: "Number enum",
 				enum: [1, 2, 3]
 			},
-			integerRange: {
+			// SLIDER COMPONENT IS NOT PORTED TO MATERIALUI V1 YET
+			/*integerRange: {
 				title: "Integer range",
 				type: "integer",
 				minimum: 42,
 				maximum: 100,
-			},
+			},/*
 			integerRangeSteps: {
 				title: "Integer range (by 10)",
 				type: "integer",
 				minimum: 50,
 				maximum: 100,
 				multipleOf: 10,
-			}
+			}*/
 		}
 	},
 	uiSchema: {
@@ -48,18 +49,19 @@ module.exports = {
 				}
 			}
 		},
-		integerRange: {
+		/*integerRange: {
 			"ui:widget": "range"
 		},
 		integerRangeSteps: {
 			"ui:widget": "range"
-		}
+		}*/
 	},
 	formData: {
 		number: 3.14,
 		integer: 42,
 		numberEnum: 2,
-		integerRange: 42,
-		integerRangeSteps: 80,
+		numberEnumRadio: 3,
+		//integerRange: 42,
+		//integerRangeSteps: 80,
 	}
 };

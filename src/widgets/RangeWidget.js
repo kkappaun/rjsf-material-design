@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react';
+/*import React, {PropTypes} from 'react';
 import Slider from 'material-ui/Slider';
 
 import {rangeSpec} from 'react-jsonschema-form/lib/utils';
@@ -37,4 +37,4 @@ if (process.env.NODE_ENV !== "production") {
   };
 }
 
-export default RangeWidget;
+export default RangeWidget;*/

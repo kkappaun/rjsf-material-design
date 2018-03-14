@@ -6,7 +6,7 @@ function BaseInput(props) {
 	const {
 		id,
 		type,
-		multiLine,
+		multiline,
 		label,
 		placeholder,
 		value,
@@ -20,39 +20,39 @@ function BaseInput(props) {
 		<TextField
 			id={id}
 			type={type}
-			multiLine={multiLine}
-			floatingLabelText={label}
+			multiline={multiline}
+			label={label}
 			value={typeof value === "undefined" ? "" : value}
 			placeholder={placeholder}
 			required={required}
 			disabled={disabled}
-            readOnly={readonly}
-            autoFocus={autofocus}
-			onChange={(event, value) => onChange(value)}
+      readOnly={readonly}
+      autoFocus={autofocus}
+			onChange={(event) => onChange(event.target.value)}
 		/>
 	);
 }
 
 BaseInput.defaultProps = {
 	type: "text",
-	multiLine: false,
+	multiline: false,
 	required: false,
 	disabled: false,
-    readonly: false,
-    autofocus: false,
+  readonly: false,
+  autofocus: false,
 };
 
 if (process.env.NODE_ENV !== "production") {
 	BaseInput.propTypes = {
 		id: PropTypes.string.isRequired,
-		multiLine: PropTypes.bool,
+		multiline: PropTypes.bool,
 		label: PropTypes.string,
 		value: PropTypes.any,
 		placeholder: PropTypes.string,
 		required: PropTypes.bool,
 		disabled: PropTypes.bool,
-        readonly: PropTypes.bool,
-        autofocus: PropTypes.bool,
+    readonly: PropTypes.bool,
+    autofocus: PropTypes.bool,
 		onChange: PropTypes.func,
 	};
 }
