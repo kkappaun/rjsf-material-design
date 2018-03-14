@@ -1,18 +1,14 @@
 import React from 'react';
 
-import { storiesOf, action } from '@kadira/storybook';
+import { storiesOf } from '@storybook/react'
+import { action } from '@storybook/addon-actions'
+import { withInfo } from '@storybook/addon-info'
 
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+
 
 import Form from './../src/index';
 
 const stories = storiesOf('Material Design Form', module);
-
-stories.addDecorator(story => (
-	<MuiThemeProvider>
-		{story()}
-	</MuiThemeProvider>
-));
 
 const capitalizeFirstLetter =
 	string => string.charAt(0).toUpperCase() + string.slice(1);

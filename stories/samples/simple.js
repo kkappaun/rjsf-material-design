@@ -21,6 +21,10 @@ module.exports = {
 				type: "string",
 				title: "Bio",
 			},
+			"date": {
+				type: "string",
+				format: "date"
+			},
 			password: {
 				type: "string",
 				title: "Password",

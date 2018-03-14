@@ -1,7 +1,21 @@
 import React from "react";
-import { RadioButton, RadioButtonGroup } from "material-ui/RadioButton";
+import Radio, { RadioGroup } from "material-ui/Radio";
+import { FormLabel, FormControl, FormControlLabel, FormHelperText } from 'material-ui/Form'
+import { asNumber } from 'react-jsonschema-form/lib/utils';
+
+function processValue({ type, items }, value) {
+	if (type === "array" && items && ["number", "integer"].includes(items.type)) {
+		return value.map(asNumber);
+	} else if (type === "boolean") {
+		return value === "true";
+	} else if (type === "number") {
+		return asNumber(value);
+	}
+	return value;
+}
 
 function RadioWidget({
+	schema,
 	options,
 	value,
 	disabled,
@@ -12,20 +26,21 @@ function RadioWidget({
 	const name = Math.random().toString();
 	const { enumOptions } = options;
 	return (
-		<RadioButtonGroup name={name}
-		                  defaultSelected={value}
-		                  onChange={(event, value) => onChange(value)}>{
+		<RadioGroup
+			name={name}
+		  value={''+value}
+      onChange={(event) => onChange(processValue(schema, event.target.value))}>{
 			enumOptions.map((option, i) => {
 				return (
-					<RadioButton key={i}
+					<FormControlLabel control={<Radio />} key={i}
 					             name={name}
-					             value={option.value}
+					             value={''+option.value}
 					             disabled={disabled}
 					             label={option.label}
 					/>
 				);
 			})
-		}</RadioButtonGroup>
+		}</RadioGroup>
 	);
 }
 
